@@ -30,6 +30,8 @@ public class MyServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
 		
+		System.out.println("In Servlet");
+		
 		int aid = Integer.parseInt(request.getParameter("aid"));
 		String aname = request.getParameter("aname");
 		

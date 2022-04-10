@@ -38,6 +38,7 @@ public class IdFilter implements Filter {
 		// place your code here
 		System.out.println("In filter");
 		
+		PrintWriter out = response.getWriter();
 		HttpServletRequest req = (HttpServletRequest) request ;
 		
 		int aid = Integer.parseInt(request.getParameter("aid"));
@@ -45,6 +46,8 @@ public class IdFilter implements Filter {
 		
 		if (aid>1) {
 			chain.doFilter(request, response);
+		}else {
+			out.print("Invalid Input");
 		}
 			
 	
