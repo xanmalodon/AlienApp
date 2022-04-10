@@ -13,17 +13,17 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * Servlet Filter implementation class IdFilter
+ * Servlet Filter implementation class NameFilter
  */
 @WebFilter("/addAlien")
-public class IdFilter implements Filter {
+public class NameFilter implements Filter {
 
     /**
      * Default constructor. 
      */
-//    public IdFilter() {
+    public NameFilter() {
         // TODO Auto-generated constructor stub
-//    }
+    }
 
 	/**
 	 * @see Filter#destroy()
@@ -38,23 +38,21 @@ public class IdFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		// TODO Auto-generated method stub
 		// place your code here
-		System.out.println("In filter");
+
+		// pass the request along the filter chain
+		System.out.println("In filterName");
 		
 		PrintWriter out = response.getWriter();
 		HttpServletRequest req = (HttpServletRequest) request ;
 		
-		int aid = Integer.parseInt(request.getParameter("aid"));
+		String aname = request.getParameter("aname");
 		
-		if (aid>1) {
+		if (aname.length()>1) {
 			chain.doFilter(request, response);
 		}else {
 			out.print("Invalid Input");
 		}
-			
 	
-		
-		// pass the request along the filter chain
-//		chain.doFilter(request, response);
 	}
 
 	/**
